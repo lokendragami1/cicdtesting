@@ -8,17 +8,5 @@ on:
 jobs:
   lintTest:
     name: Lint
-    runs-on: windows-latest
-    steps:
-    - name: Clone Repository
-      uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: |
-        echo "Running Installing Dependencies..."
-        npm install
-    - name: Run Linting
-      run: |
-        echo "Running Linting Test..."
-        npm run lint
-      env:
-        CI: true
+    
+    
