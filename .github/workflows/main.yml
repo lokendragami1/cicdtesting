@@ -16,7 +16,6 @@ jobs:
           node-version: '16.x'
       - name: Install NPM dependencies
         run: npm install
-          shell: /home/ubuntu/cicdtesting/
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -25,8 +24,6 @@ jobs:
           aws-region: ap-south-1
       - name: Git Pull
         run: git pull
-          shell: /home/ubuntu/cicdtesting/
       - name: Create Build
         run: npm run build
-          shell: /home/ubuntu/cicdtesting/
         
