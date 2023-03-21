@@ -1,16 +1,24 @@
-name: Deployment
-
-concurrency: production
+name: MyPipeline
 
 on:
   push:
-    branches:
-      - main
+    branches:[main]
+
 
 jobs:
-  deployment:
-    runs-on: ubuntu-latest
-    environment: production
+  lintTest:
+    name: Lint
+    runs-on: windows-latest
     steps:
-      - name: deploy
-        # ...deployment-specific steps
+    - name: Clone Repository
+      uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: |
+        echo "Running Installing Dependencies..."
+        npm install
+    - name: Run Linting
+      run: |
+        echo "Running Linting Test..."
+        npm run lint
+      env:
+        CI: true
