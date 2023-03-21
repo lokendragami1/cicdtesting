@@ -1,12 +1,16 @@
-name: MyPipeline
+name: Deployment
+
+concurrency: production
 
 on:
   push:
-    branches:[main]
-
+    branches:
+      - main
 
 jobs:
-  lintTest:
-    name: Lint
-    
-    
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: deploy
+        # ...deployment-specific steps
